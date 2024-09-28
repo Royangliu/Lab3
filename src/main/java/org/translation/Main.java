@@ -50,12 +50,12 @@ public class Main {
             // Task: Once you switch promptForCountry so that it returns the country
             //            name rather than the 3-letter country code, you will need to
             //            convert it back to its 3-letter country code when calling promptForLanguage
-            String language = promptForLanguage(translator, country);
+            CountryCodeConverter countryConverter = new CountryCodeConverter();
+            String countryCode = countryConverter.fromCountry(country);
+            String language = promptForLanguage(translator, countryCode);
             if (language.equals(QUIT)) {
                 break;
             }
-            CountryCodeConverter countryConverter = new CountryCodeConverter();
-            String countryCode = countryConverter.fromCountry(country);
 
             // Task: Once you switch promptForLanguage so that it returns the language
             //            name rather than the 2-letter language code, you will need to

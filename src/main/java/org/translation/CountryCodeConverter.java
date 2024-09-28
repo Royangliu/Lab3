@@ -38,8 +38,8 @@ public class CountryCodeConverter {
             for (int i = 1; i < lines.size(); i++) {
                 String line = lines.get(i);
                 String[] lineSep = line.split("\t");
-                countriesCode.put(lineSep[2], lineSep[0]);
-                countriesName.put(lineSep[0], lineSep[2]);
+                countriesCode.put(lineSep[2].toLowerCase(), lineSep[0]);
+                countriesName.put(lineSep[0], lineSep[2].toLowerCase());
             }
 
         }
@@ -55,7 +55,7 @@ public class CountryCodeConverter {
      * @return the name of the country corresponding to the code
      */
     public String fromCountryCode(String code) {
-        return countriesCode.get(code.toUpperCase());
+        return countriesCode.get(code);
     }
 
     /**
